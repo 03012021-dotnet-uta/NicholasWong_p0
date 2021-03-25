@@ -14,7 +14,7 @@ trigger:
 
 pool:
   vmImage: 'windows-latest'
-  name: 'Azure Pipelines'
+  name: 'Test'
 
 variables:
   solution: 'pizzabox.sln'
@@ -73,7 +73,5 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    # modifyOutputPath: false
-    # workingDirectory: 'pizzabox'
     projects: '$(solution)'
     zipAfterPublish: true
