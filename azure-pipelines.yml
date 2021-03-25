@@ -4,35 +4,75 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- main
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - Demos/JavaScriptWithDotnetAPI
+
 
 pool:
-  name: 'Azure Pipelines'
+  vmImage: 'windows-latest'
 
 variables:
-  solution: '**/pizzabox/*.sln'
+  solution: 'pizzabox.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+
+#this installs the newest SDK for this build
 steps:
+- task: UseDotNet@2
+  displayName: 'Install .NET Core SDK'
+  inputs:
+    packageType: 'sdk'
+    version: '5.0.x'
+    # performMultiLevelLookup: true
+    # includePreviewVersions: true # Required for preview versions
+
+- task: UseDotNet@2
+  displayName: 'Install .NET Core Runtime'
+  inputs:
+    packageType: 'runtime'
+    version: '2.x'
+    # performMultiLevelLookup: true
+
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1
+#this will restore and build the directory.
+- task: DotNetCoreCLI@2
+  displayName: 'building'
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'build'
+    projects: 'pizzabox/*.sln'
+    workingDirectory: 'pizzabox'
+    arguments: '--configuration $(buildConfiguration)'
 
-- task: VSTest@2
+# - task: VSBuild@1
+#   inputs:
+#     solution: '$(solution)'
+#     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+#     platform: '$(buildPlatform)'
+#     configuration: '$(buildConfiguration)'
+
+
+# - task: VSTest@2
+#   inputs:
+#     platform: '$(buildPlatform)'
+#     configuration: '$(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publishing'
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-  
-- task: VSBuild@1
-  inputs:
-    solution: '**\pizzabox\.sln'
+    command: 'publish'
+    publishWebProjects: false
+    # modifyOutputPath: false
+    # workingDirectory: 'pizzabox'
+    projects: '$(solution)'
+    zipAfterPublish: true
