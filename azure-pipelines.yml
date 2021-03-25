@@ -14,7 +14,7 @@ trigger:
 
 pool:
   vmImage: 'windows-latest'
-  name: 'Test'
+  name: 'Azure Pipelines'
 
 variables:
   solution: 'pizzabox.sln'
