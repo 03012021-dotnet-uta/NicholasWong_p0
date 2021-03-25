@@ -1,0 +1,510 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetnSalty Interactive</title>
+    <style>
+        body {
+            background-color: #424642;
+        }
+        input {
+            text-align: right;
+        }
+        .mainContent {
+            background-color: #536162;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+
+            margin:auto;
+            width: 90%;
+            border: 1px solid black;
+        }
+        .mainContent > h1{
+            color: #be0000;
+            text-align: center;
+            font-size: 3.0vw;
+            margin-bottom:0;
+            /* border: 1px solid black; */
+        }
+        .mainContent .rules{
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size:2.0vw;
+            padding:0;
+            width:80%;
+            color:navy;
+            /* border: 1px solid black; */
+        }
+
+        .mainContent .ruleset{
+            margin-left:auto;
+            margin-right:auto;
+            font-size:1.5vw;
+            padding:0;
+            width:100%;
+            text-align: left;
+            text-indent: 1rem;
+            list-style-position: inside;
+            color:white;
+            /* border: 1px solid black; */
+        }
+        .mainContent .ruleset h2{
+            margin-left:auto;
+            margin-right:auto;
+            font-size:1.0vw;
+            padding:0;
+            width:100%;
+
+            /* border: 1px solid black; */
+        }
+        .mainContent .inputInfo{
+            margin-left:auto;
+            margin-right:auto;
+            margin-bottom:0;
+            width:30%;
+            text-align: center;
+            font-size:1.25vw;
+            display:flex;
+            flex-direction: column;
+            margin-bottom:1rem;
+            color:whitesmoke;
+            /* border: 1px solid black; */
+        }
+        .mainContent .inputInfo .formContent{
+            margin-left:auto;
+            margin-right:auto;
+            margin-bottom:0.5rem;
+            width:100%;
+            font-size:1.50vw;
+            /* border: 1px solid black; */
+            display:flex;
+        }
+        .mainContent .inputInfo .formContent .formText{
+            text-align:left;
+            text-indent: 0.5rem;
+            flex:1;
+            margin-left:auto;
+            margin-right:auto;
+            /* border: 1px solid black; */
+        }
+        .mainContent .inputInfo .formContent .formInput{
+            margin-left:auto;
+            margin-right:auto;
+            width:40%;
+            /* border: 1px solid black; */
+        }
+        .mainContent .inputInfo .formContent .inputbtn{
+            margin-left:auto;
+            margin-right:auto;
+            font-size:1.25vw;
+            width:50%;
+            margin-top:1rem;
+            /* border: 1px solid black; */
+        }
+        .mainContent .sweetnsaltyprint{
+            background-color: #f3f4ed;
+            margin-left:auto;
+            margin-right:auto;
+            font-size:1.25vw;
+            width:80%;
+            margin-top:1rem;
+            padding-top:1rem;
+            border-top: 2px solid black;
+            display:flex;
+            flex-direction: column;
+        }
+
+        .mainContent .sweetnsaltyprint .sweetnsaltyLine{
+            border-bottom:1px solid black;
+            font-size:1.5vw;
+            margin-left:1rem;
+            margin-right:1rem;
+            margin-top:0.25;
+            margin-bottom:0.25;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* align-content: space-between; */
+        }
+
+        .mainContent .sweetnsaltyprint .counter{
+            /* border:1px solid black; */
+            font-size:1.25vw;
+            margin-left:auto;
+            margin-right:auto;
+            margin-top:0;
+            margin-bottom:1rem;
+            width:50%;
+            display:flex;
+            flex-direction: column;
+            border-bottom:2px solid black;
+            padding-bottom: 0.5rem;
+            /* align-content: space-between; */
+        }
+        .mainContent .sweetnsaltyprint .counter h1{
+            /* border:1px solid black; */
+            color:#c06014;
+            width:100%;
+            text-align: center;
+            flex:1;
+            margin:0;
+            font-size:3.0vw;
+            /* align-content: space-between; */
+        }
+        .mainContent .sweetnsaltyprint .counter .counterItem{
+            /* border:1px solid black; */
+            width:100%;
+            font-size:1.5vw;
+            display:flex;
+            margin:0;
+            /* align-content: space-between; */
+        }
+        
+        .mainContent .sweetnsaltyprint .counter .counterItem .counterText{
+            /* border:1px solid black; */
+            width:60%;
+            flex:1;
+            margin:0;
+            /* align-content: space-between; */
+        }
+        .mainContent .sweetnsaltyprint .counter .counterItem .counterNum{
+            /* border:1px solid black; */
+            width:20%;
+            text-align: right;
+            margin:0;
+            /* align-content: space-between; */
+        }
+
+        .sweetnsalty{
+            color:darkmagenta;
+        }
+
+        .sweet{
+            color:blue;
+        }
+
+        .salty{
+            color: red;
+        }
+
+        #errorM{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainContent">
+        <h1>Welcome to SaltynSalty Interactive</h1>
+        <div class = "rules"><h2 class="rulesText">Click to See Rules</h2></div>
+        <form class="inputInfo"  name="formInfo">
+            <div class="formContent">
+                <span class="formText"><label for="sNumber">Starting Number:</label></span>
+                <span class="formInput"><input type="text" name="sNumber"></span>
+            </div>
+            <div class="formContent">
+                <button class="inputbtn" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const rulesExpand = document.querySelector(".rulesText");
+        const submitButton = document.querySelector(".inputInfo");
+
+        submitButton.addEventListener("submit", submitButtonFunction);
+
+        rulesExpand.addEventListener("click", (event) => {
+            let expandHtml = `
+                <ol class="ruleset">
+                    <li>Enter a starting number and ending number</li>
+                    <li>Enter how many numbers you want to be displayed per line</li>
+                    <li>Starting and ending numbers must be 200 apart, but less than 10,000 apart</li>
+                    <li>Numbers per line must be no fewer than 1/100th of the total numbers</li>
+                    <li>If a number is divisble by 3, it will print "Sweet" instead</li>
+                    <li>If a number is divisble by 5, it will print "Salty" instead</li>
+                    <li>If a number is divisble by 3 and 5, it will print "SweetnSalty" instead</li>
+                </ol>
+            `
+            if(event.target.classList.contains("rulesText")) {
+                if(event.target.id != "expanded") {
+                    event.target.setAttribute("id", "expanded");
+                    
+                    event.target.innerHTML += expandHtml;
+                }
+                else {
+                    event.target.removeAttribute("id");
+                    event.target.lastElementChild.remove();
+                }
+            }
+        })
+
+        function submitButtonFunction(event) {
+            event.preventDefault();
+            
+            let curNumberChild = event.target.querySelectorAll("input[type='text']").length;
+
+            let formContent = document.createElement("div");
+            formContent.classList.add("formContent");
+            let spanInfo = document.createElement("span");
+            spanInfo.classList.add("formText");
+            let spanInput = document.createElement("span");
+            spanInput.classList.add("formInput");
+            let labelInfo = document.createElement("label");
+            let labelInput = document.createElement("input");
+            labelInput.setAttribute("type", "text");
+
+            spanInfo.appendChild(labelInfo);
+            spanInput.appendChild(labelInput);
+
+            formContent.appendChild(spanInfo);
+            formContent.appendChild(spanInput);
+
+            let possibleError;
+
+            switch(curNumberChild) {
+                case 1:
+                    labelInfo.setAttribute("for", "eNumber");
+                    labelInfo.innerText = "Ending Number: "
+                    labelInput.setAttribute("name", "eNumber");
+
+                    possibleError = validStartNumber();
+                    if(possibleError == "") {
+                        toggleErrorMessage(possibleError);
+                        submitButton.insertBefore(formContent, submitButton.lastElementChild);
+                    }
+                    else {
+                        toggleErrorMessage(possibleError);
+                    }
+                    return;
+                case 2:
+                    labelInfo.setAttribute("for", "iNumber");
+                    labelInfo.innerText = "Numbers per Line:"
+                    labelInput.setAttribute("name", "iNumber");
+                    
+                    possibleError = validEndNumber();
+                    if(possibleError == "") {
+                        toggleErrorMessage(possibleError);
+                        submitButton.insertBefore(formContent, submitButton.lastElementChild);
+                    }
+                    else {
+                        toggleErrorMessage(possibleError);
+                    }
+                    return;
+                case 3:
+                    possibleError = validIncrement();
+                    if(possibleError == "") {
+                        toggleErrorMessage(possibleError);
+                        startSweetnSaltyPrint();
+                        changeButton();
+                    }
+                    else {
+                        toggleErrorMessage(possibleError);
+                    }
+                    return;
+                default:
+                    return;
+            }
+        }
+
+        function resetFormButton() {
+            let defaultHtml = `
+            <div class="formContent">
+                <span class="formText"><label for="sNumber">Starting Number:</label></span>
+                <span class="formInput"><input type="text" name="sNumber"></span>
+            </div>
+            `
+            document.querySelector(".mainContent").lastElementChild.remove();
+            submitButton.firstElementChild.remove();
+            submitButton.innerHTML += defaultHtml + submitButton.innerHTML;
+        }
+
+        function changeButton() {
+            const currentButton = document.querySelector(".inputbtn");
+
+            if(currentButton.innerText == "Submit") {
+                submitButton.removeEventListener("submit", submitButtonFunction);
+                submitButton.addEventListener("submit", resetFormButton);
+                currentButton.innerText = "Reset";
+            }
+            else {
+                // resetForm();
+                submitButton.removeEventListener("submit", resetFormButton);
+                submitButton.addEventListener("submit", submitButtonFunction);
+                currentButton.innerText = "Submit";
+            }
+        }
+
+        function toggleErrorMessage(errorMessage) {
+            let findError = document.querySelector("#errorM");
+
+            if(errorMessage == "") {
+                if(findError!=null) {
+                    findError.remove();
+                }
+                disableInputs();
+            }
+            else {
+                if(findError == null) {
+                    let newErrorHtml = `
+                        <div id="errorM">${errorMessage}</div>
+                    `
+                    let errorDiv = document.createElement("div");
+                    errorDiv.setAttribute("id", "errorM");
+                    errorDiv.innerText = errorMessage;
+                    submitButton.insertBefore(errorDiv, submitButton.lastElementChild);
+                }
+                else {
+                    findError.innerText = errorMessage;
+                }
+            }
+        }
+
+        function numberCheck(userInput) {
+            if(userInput == "") {
+                return false;
+            }
+
+            let numCheck = Number(userInput);
+            
+            if(isNaN(numCheck)) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+        function validStartNumber() {
+            if(!numberCheck(document.forms.formInfo.sNumber.value)) {
+                return "Please enter a number";
+            }
+            else {
+                return "";
+            }
+        }
+
+        function validEndNumber() {
+            let numCheck = document.forms.formInfo.eNumber.value;
+            if(!numberCheck(numCheck)) {
+                return "Please enter a number";
+            }
+            else {
+                let sNumber = Number(document.forms.formInfo.sNumber.value);
+                let eNumber = Number(numCheck);
+                if(eNumber - sNumber < 200) {
+                    return "Numbers must be at least 200 apart";
+                }
+                if(eNumber - sNumber >= 10000) {
+                    return "Numbers cannot be more than 10,000 apart";
+                }
+                return "";
+            }
+        }
+
+        function validIncrement() {
+            let numCheck = document.forms.formInfo.iNumber.value;
+            if(!numberCheck(numCheck)) {
+                return "Please enter a number";
+            }
+            else {
+                let sNumber = Number(document.forms.formInfo.sNumber.value);
+                let eNumber = Number(document.forms.formInfo.eNumber.value);
+                let iNumber = Number(numCheck)
+
+                if(((eNumber-sNumber)/100) > iNumber) {
+                    return "Increment cannot be less than 1/100th of total numbers";
+                }
+                else {
+                    return "";
+                }
+            }
+        }
+
+        function disableInputs() {
+            let allInput = submitButton.querySelectorAll("input[type='text']");
+            allInput.forEach(value => {
+
+                 value.disabled = true;
+            })
+        }
+
+        function startSweetnSaltyPrint() {
+            let startingNum = Number(document.forms.formInfo.sNumber.value);
+            let endingNum = Number(document.forms.formInfo.eNumber.value);
+            let incrementNum = Number(document.forms.formInfo.iNumber.value);
+
+            let sweetnSaltyDiv = document.createElement("div");
+            let completeStringHtml = ``;
+            sweetnSaltyDiv.classList.add("sweetnsaltyprint");
+
+            let counter = {
+                sweetCount: 0,
+                saltyCount: 0,
+                sweetSaltyCount: 0,
+            };
+
+            let i = 0;
+            for(i = startingNum; i <= endingNum - incrementNum; i += incrementNum)
+            {
+                completeStringHtml += PrintCheck(i, counter, incrementNum);
+            }
+            
+            if(i < endingNum) {
+                completeStringHtml += PrintCheck(i, counter, endingNum - i);
+            }
+            
+            let sweetnsaltyCounter = document.createElement("div");
+            sweetnsaltyCounter.classList.add("counter");
+            sweetnsaltyCounter.innerHTML = `
+                <h1>Total Counts</h1>
+                <div class="counterItem sweet"><span class="counterText">Sweet: </span><span class="counterNum">${counter.sweetCount}</span></div>
+                <div class="counterItem salty"><span class="counterText">Salty: </span><span class="counterNum">${counter.saltyCount}</span></div>
+                <div class="counterItem sweetnsalty"><span class="counterText">SweetnSalty: </span><span class="counterNum">${counter.sweetSaltyCount}</span></div>
+            `
+            
+            sweetnSaltyDiv.appendChild(sweetnsaltyCounter);
+            sweetnSaltyDiv.innerHTML += completeStringHtml;
+            /**Print the entire sweetnSalty string */
+            document.querySelector(".maincontent").appendChild(sweetnSaltyDiv);
+            /**Print the counts using a loop through each value in the object */
+        }
+
+        function PrintCheck(curNum, counter, incrementvalue, sweetNum = 3, saltyNum = 5, sweetText = "sweet", saltyText = "salty", sweetnSaltyText = "sweetnSalty")
+        {
+            let curString = `<div class="sweetnsaltyLine">`;
+
+            //Loop through each number in the current line and see what needs to be added to string/printed
+            for(let i = curNum; i <= curNum + incrementvalue; i++)
+            {
+                if(i % (sweetNum*saltyNum) == 0)
+                {
+                    curString += `<span class="sweetnsalty">${sweetnSaltyText}</span>`;
+                    counter.sweetSaltyCount++;
+                }
+                else if(i % sweetNum == 0)
+                {
+                    curString += `<span class="sweet">${sweetText}</span>`;
+                    counter.sweetCount++;
+                }
+                else if(i % saltyNum == 0)
+                {
+                    curString += `<span class="salty">${saltyText}</span>`;
+                    counter.saltyCount++;
+                }
+                else
+                {
+                    curString += `<span>${i.toLocaleString()}</span>`;
+                }
+                curString += `&nbsp`;
+            }
+
+            //Return this line's string with a newline at the end
+            return curString += `</div>`;
+        }
+    </script>
+</body>
+</html>
