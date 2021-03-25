@@ -73,5 +73,5 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: '$(solution)'
+    projects: 'pizzabox/*.sln'
     zipAfterPublish: true
