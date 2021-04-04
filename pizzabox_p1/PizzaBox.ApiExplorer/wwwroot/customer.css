@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+
+body {
+    background-color:#3A3E3B;
+    margin:0;
+}
+
+.topbar {
+    display: flex;
+    margin:0;
+    padding:0;
+    max-width: 100%;
+    height: 10%;
+    /* border: 3px solid black; */
+    justify-content: space-between;
+    background-color:#536162;
+}
+
+.topbar-item {
+    color:#E5E7E6;
+    display: block;
+    height:100%;
+    width:25%;
+    border: 1px solid black;
+}
+
+.topbar-item span {
+    margin:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:100%;
+    font-size: 2vw;
+    text-align: center;
+    /* border: 1px solid red; */
+    flex-grow: 1;
+}
+
+.topbar-item:hover {
+    background-color:darkblue;
+}
+
+.maincontent {
+    display:flex;
+    flex-direction: column;
+}
+
+.maincontent .countdown{
+    background: #15262B;
+    color:white;
+    text-align: center;
+    margin-top:1rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width:60%;
+    font-size: 3vw;
+}
+
+.maincontent .countdown .countdowntitle {
+    font-size:3vw;
+}
+
+.maincontent .countdown .cdtimer {
+    font-size:2vw;
+}
+
+.maincontent .orderhistory {
+    color:#FFCCC9;
+    background-color: #424642;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+    /* border: 1px solid red; */
+}
+
+.maincontent h1 {
+    padding-top:1rem;
+    margin-bottom:0;
+    text-align: center;
+    font-size: 3vw;
+}
+
+.maincontent .allorders {
+    list-style-type:none;
+    color:black;
+    padding:0;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom:1rem;
+    width:95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+
+.maincontent .order {
+    padding: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin: 0;
+    height: 10%;
+    width: 100%;
+    
+    /* border: 1px solid blue; */
+}
+
+.maincontent .moreinfo {
+    color:#FFC914;
+    text-transform: capitalize;
+}
+
+.maincontent .information {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size:2vw;
+    padding-bottom: 0.5rem;
+    /* border: 1px solid blue; */
+}
+
+.maincontent .orderagain {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:15%;
+    position: relative;
+    left:43%;
+    /* border: 1px solid black; */
+}
+
+.maincontent .ordering h1 {
+    margin-bottom: 0;
+}
+
+.maincontent .ordering h2 {
+    text-align: center;
+    font-size: 1.75vw;
+    margin: auto;
+    width:50%;
+    /* border: 1px solid red; */
+}
+
+.maincontent .order:nth-child(odd) {
+    background-color: #91918B;
+    border-bottom: 1px solid black;
+}
+
+.maincontent .order:nth-child(even) {
+    background-color:#91918B;
+    border-bottom: 1px solid black;
+}
+
+.maincontent .ordering .orderNow {
+    list-style-type:none;
+    color:red;
+    padding:0;
+    padding-bottom:1rem;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    /* border: 1px solid red; */
+}
+
+.maincontent .ordering {
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding:0;
+    width: 90%;
+    display:flex;
+    justify-content: center;
+}
+
+.maincontent .ordering:not(#storeselected){
+    border:none;
+}
+
+.maincontent .ordering .orderselect {
+    background-color: white;
+    margin:0;
+    width: 50%;
+    display:inline-block;
+}
+
+.maincontent .ordering .orderselect:not(#storeselected) {
+    border: 2px solid black;
+}
+
+#storeselected {
+    flex:1;
+}
+
+.maincontent .ordering .currentorder {
+    background-color:burlywood;
+    margin:0;
+    width: 33%;
+    /* border: 1px solid black; */
+    display:inline-block;
+}
+
+.maincontent .priceOrder {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    display:flex;
+    width:90%;
+    /* border: 1px solid black; */
+    align-content: center;
+    height:10%;
+    margin-top: 1.0rem;
+    flex-direction: column;
+}
+
+.maincontent .priceOrder .totalprice {
+    font-size:2.0vw;
+    width:100%;
+    margin-bottom: 1rem;
+    text-align: right;
+    /* border: 1px solid black; */
+}
+
+.maincontent .priceOrder .orderbutton{
+    /* border: 1px solid black; */
+    font-size:1.0vw;
+    height:100%;
+    width:80%;
+    margin-left: auto;
+    margin-right:0;
+    padding:0;
+}
+.maincontent .priceOrder .orderbutton button{
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-size: 1.25vw;
+    width:100%;
+    margin-left: auto;
+    margin-right:0;
+    padding:0;
+}
+
+.maincontent .ordering .storeOption {
+    margin: auto;
+    width: 70%;
+    /* border: 1px solid black; */
+}
+
+.maincontent .ordering .currentList {
+    list-style-type:none;
+    color:black;
+    padding:0;
+    padding-bottom:1rem;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+
+    border-bottom: 1px solid black;
+}
+
+.maincontent .currentList .currentItem{
+    /* border: 1px solid black; */
+    font-size:1.0vw;
+    margin:0.25rem;
+    padding-right:0;
+    display:flex;
+    border-bottom: 1px solid black;
+}
+
+.maincontent .currentList .currentItem:last-child{
+    /* border: 1px solid black; */
+    border:none;
+}
+
+.maincontent .currentList .currentItem .delbtn{
+    /* border: 1px solid red; */
+    color:blue;
+    text-decoration: underline;
+    font-size:1.0vw;
+    margin-top:0.25rem;
+    margin-left:0.25rem;
+    margin-right:0.25rem;
+    display:flex;
+    text-align: right;
+    justify-content: center;
+    align-items: center;
+    /* border-bottom: 1px solid black; */
+}
+
+.maincontent .currentList .currentItem .currentItemText{
+    /* border: 1px solid black; */
+    font-size:1.0vw;
+    padding:0;
+    margin-bottom:0.25rem;
+    height:100%;
+    width: 75%;
+    flex:1;
+}
+
+.maincontent .ordering .storebtn {
+    width:100%;
+    padding-top: 0.50rem;
+    padding-bottom: 0.50rem;
+    font-size: 1.25vw;
+    margin-top:0.5rem;
+    margin-bottom:0.5rem;
+}
+
+.maincontent .ordering .pizzaOptions {
+    list-style-type:none;
+    color:black;
+    padding:0;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* border: 2px solid black; */
+}
+
+.maincontent .ordering .pizza {
+    background-color:rgb(187, 186, 186);
+    margin-left: auto;
+    margin-right: auto;
+    padding:1rem;
+    width: 90%;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    display:flex;
+    justify-content: center;
+}
+
+.maincontent .pizzaName:not(.price) {
+    margin: 0;
+    padding:0;
+    width: 80%;
+    /* border-right: 1px solid black; */
+    font-weight: bolder;
+    font-size: 1.25vw;
+    display:flex;
+    flex: 1;
+    text-align: left;
+    text-indent: 1.0rem;
+}
+
+.maincontent .pizzaName:not(.price) .pizzaInfo{
+    width:100%;
+    /* border: 1px solid black; */
+    display:flex;
+    flex-direction: column;
+}
+
+.maincontent .pizzaInfoList {
+    display:flex;
+    flex-direction: column;
+    /* border: 1px solid black; */
+    width:80%;
+    flex:1;
+}
+
+.maincontent .pizzaName:not(.price) .presetName{
+    width:100%;
+    margin:0;
+    margin-top: 0.25rem;
+    padding:0;
+    font-size:1.5vw;
+    /* border: 1px solid black; */
+    flex:1;
+    color:maroon;
+}
+.maincontent .pizzaName:not(.price) .presetInfo{
+    width:100%;
+    margin:0;
+    margin-bottom:0.25rem;
+    /* border: 1px solid black; */
+}
+
+.maincontent .pizzaName.price {
+    margin: 0;
+    padding:1rem;
+    border-right: 1px solid black;
+    font-weight: bolder;
+    font-size: 1.25vw;
+    text-indent: 1.0rem;
+}
+
+.maincontent .pizzaName:last-child {
+    padding:0.5rem;
+    font-size:2.50vw;
+    border-right:none;
+    border-bottom: 1px solid black;
+}
+
+.maincontent .placeorder {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.0vw;
+    padding-left:0.5rem;
+    padding-right:0.5rem;
+    border-left: 1px solid black;
+    text-align: center;
+}
+
+.maincontent .sizeselect {
+    margin:0.5rem;
+    padding:0.25rem;
+    text-align: center;
+}
+
+.maincontent .pizza.preset, .maincontent .pizza.custom {
+    padding:0;
+}
+
+.maincontent .orderselect .customOptions {
+    display:inline-block;
+    border: 1px solid black;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.maincontent .customOptions .comp {
+    margin:0;
+    border-right: 1px solid black;
+    flex:1;
+    padding-top: 0;
+}
+
+.maincontent .customOptions .comp:last-child {
+    border:none;
+}
+
+.maincontent .comp h3 {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.maincontent .comp .compOptions {
+    /* border: 1px solid black; */
+    display:flex;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:0;
+    border-bottom: 1px solid black;
+}
+
+.maincontent .comp .compOptions:last-child {
+    /* border: 1px solid black; */
+    border-bottom: none;
+}
+
+.maincontent .comp .compOptions input{
+    margin:1rem;
+    align-self:flex-end;
+}
+
+.maincontent .comp .compOptions label{
+    /* border: 1px solid red; */
+    margin:0;
+    padding-left: 1rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+    width:80%;
+}
+
+.maincontent .addpizza{
+    /* border: 1px solid red; */
+    /* border: 1px solid black; */
+    display:flex;
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    justify-content: flex-end;
+    width: 90%
+}
+
+.maincontent .addpizza .addbtn{
+    /* border: 1px solid red; */
+    /* border: 1px solid black; */
+    padding: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 1.5vw;
+    width:80%;
+}
+
+.maincontent .storeoptions {
+    display:flex;
+    flex-direction: column;
+    background-color:whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:1rem;
+    width:90%;
+}
+
+.price {
+    text-align: right;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#name {
+    font-family: 'Dancing Script', cursive;
+    background-color:#3A3E3B;
+    color:#c06014;;
+    border:none;
+}
+
+#selected {
+    color:#8AC6D0;
+    background-color:slategray;
+}

@@ -1,0 +1,324 @@
+body {
+    background-color: #F1F2EB;
+    margin: 0;
+}
+
+.topbar {
+    display: flex;
+    margin:0;
+    padding:0;
+    max-width: 100%;
+    height: 10%;
+    /* border: 3px solid black; */
+    justify-content: space-between;
+    background-color:#536162;
+}
+
+.topbar-item {
+    color:#E5E7E6;
+    display: block;
+    height:100%;
+    width:25%;
+    border: 1px solid black;
+}
+
+.topbar-item span {
+    margin:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:100%;
+    font-size: 2vw;
+    text-align: center;
+    /* border: 1px solid red; */
+    flex-grow: 1;
+}
+
+.topbar-item:hover {
+    background-color:darkblue;
+}
+
+.maincontent {
+    color: #4A4A48;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    width: 90%;
+    /* border: 1px solid red; */
+}
+
+.maincontent .orderhistory {
+    color:black;
+    background-color: white;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.maincontent .orderhistory .ordertabs{
+    color:black;
+    background-color: white;
+    margin-top: 1rem;
+    margin-bottom:0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    display:flex;
+    /* border: 1px solid black; */
+}
+
+.maincontent .orderhistory .ordertabs .nametab{
+    flex:1;
+    margin:0;
+}
+
+.maincontent .orderhistory .ordertabs .timetab{
+    margin:0;
+    width:25%;
+    text-align: right;
+}
+
+.maincontent .orderhistory .ordertabs .pricetab{
+    margin:0;
+    width:25%;
+    text-align: right;
+}
+
+.maincontent h1 {
+    padding-top:1rem;
+    margin-bottom:0;
+    text-align: center;
+    font-size: 3vw;
+}
+
+.maincontent .allorders {
+    list-style-type:none;
+    color:black;
+    padding:0;
+    margin-top:0;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom:1rem;
+    width:95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+
+.maincontent .order {
+    padding: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin: 0;
+    height: 10%;
+    width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    /* border: 1px solid blue; */
+}
+
+.maincontent .order .information {
+    /* border: 1px solid black; */
+    display:flex;
+}
+
+.maincontent .order .name{
+    flex:1;
+    /* border: 1px solid blue; */
+}
+
+.maincontent .order .time{
+    text-align: right;
+    width:20%;
+    /* border: 1px solid red; */
+}
+
+.maincontent .order .total{
+    text-align: right;
+    width:20%;
+    /* border: 1px solid green; */
+}
+
+.maincontent .moreinfo {
+    text-transform: capitalize;
+}
+
+.maincontent .inventory {
+    color:black;
+    background-color: white;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    border: 1px solid black;
+}
+
+.maincontent .inventory .allitems {
+    list-style-type:none;
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: capitalize;
+    width: 90%;
+    padding:0;
+    /* border: 1px solid black; */
+}
+
+.maincontent .inventory .allitems .item {
+    margin-top:0.5rem;
+    margin-bottom:0.5rem;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+    display:flex;
+    border-bottom: 1px solid black;
+}
+
+.maincontent .inventory .allitems .item:last-child {
+    border-bottom: none;
+}
+
+.maincontent .inventory .allitems .item .itemname{
+    margin:0;
+    flex: 1;
+}
+
+.maincontent .inventory .allitems .item .iteminv{
+    margin:0;
+    text-align: right;
+    width:30%;
+}
+
+.maincontent .inventory .allitems .item .invinput{
+    text-align: right;
+    width:50%;
+}
+
+.maincontent .inventory .update{
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom:1rem;
+    margin-top:0;
+    width:90%;
+    /* border: 1px solid black; */
+    display:flex;
+}
+
+.maincontent .inventory #updatebtn{
+    align-self: flex-end;
+    margin-left:auto;
+    width:20%;
+}
+
+.maincontent .newcomp {
+    color:black;
+    background-color: white;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: 1px solid black;
+}
+
+.maincontent .newcomp .addcomp{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    /* border: 1px solid black; */
+    display:flex;
+    flex-direction: column;
+    border-bottom: 2px solid black;
+}
+
+.maincontent .newcomp .addcompC{
+    /* border: 1px solid red; */
+    display:flex;
+    margin-bottom:1rem;
+    width:100%;
+}
+.maincontent .newcomp .addcompC label{
+    /* border: 1px solid blue; */
+    flex:1;
+}
+.maincontent .newcomp .addcompC .userinput{
+    /* border: 1px solid green; */
+    text-transform: capitalize;
+    width:30%;
+}
+
+.maincontent .newcomp .updatecomp{
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom:1rem;
+    margin-top:0;
+    width:90%;
+    /* border: 1px solid black; */
+    display:flex;
+}
+
+.maincontent .newcomp .addtoppings{
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom:1rem;
+    margin-top:0.5rem;
+    width:100%;
+    /* border: 1px solid black; */
+    display:flex;
+    flex-direction: column;
+}
+
+.maincontent .inventory .ordertabs{
+    color:black;
+    background-color: white;
+    margin-top: 1rem;
+    margin-bottom:0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    display:flex;
+    /* border: 1px solid black; */
+}
+
+.maincontent .inventory .ordertabs .nametab{
+    flex:1;
+    margin:0;
+}
+
+.maincontent .inventory .ordertabs .timetab{
+    margin:0;
+    width:15%;
+    align-self: flex-end;
+    text-align: right;
+    /* border: 1px solid black; */
+}
+
+.maincontent .inventory .ordertabs .pricetab{
+    margin:0;
+    width:15%;
+    text-align: right;
+    /* border: 1px solid black; */
+}
+
+.maincontent .newcomp #addtopping{
+    align-self: flex-end;
+    margin-left:auto;
+    width:30%;
+}
+
+.maincontent .newcomp #submitcompbtn{
+    align-self: flex-end;
+    margin-left:auto;
+    width:30%;
+}
+
+#selected {
+    color:#8AC6D0;
+    background-color:slategray;
+}
